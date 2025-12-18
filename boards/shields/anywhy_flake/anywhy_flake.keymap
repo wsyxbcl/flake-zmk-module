@@ -22,6 +22,26 @@
             bindings = <&kp GRAVE>;
             key-positions = <13 25>;
         };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <13 14>;
+        };
+
+        bs {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <25 26>;
+        };
+
+        quote {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <34 35>;
+        };
+
+        shift {
+            bindings = <&kp LEFT_SHIFT>;
+            key-positions = <36 37>;
+        };
     };
 
     macros {
@@ -106,34 +126,6 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
-        home_row_left: home_row_left {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_LEFT";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            quick-tap-ms = <175>;
-            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 53 54 55 56 57>;
-            require-prior-idle-ms = <125>;
-            retro-tap;
-        };
-
-        home_row_right: home_row_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_RIGHT";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "balanced";
-            quick-tap-ms = <150>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52>;
-            require-prior-idle-ms = <125>;
-            retro-tap;
-        };
     };
 
     keymap {
@@ -143,26 +135,26 @@
             bindings = <
 &none  &kp N1               &kp N2               &kp N3                &kp N4       &kp N5            &kp N6     &kp N7       &kp N8            &kp N9     &kp N0     &kp BACKSPACE
 &none  &kp Q                &kp W                &kp F                 &kp P        &kp G             &kp J      &kp L        &kp U             &kp Y      &kp SEMI   &kp BACKSLASH
-&none  &kp A                &kp R                &kp S                 &kp T        &kp D             &kp H      &kp N        &kp E             &kp I      &kp O      &kp SINGLE_QUOTE
-&none  &mt LEFT_SHIFT Z     &kp X                &kp C                 &kp V        &kp B             &kp K      &kp M        &kp COMMA         &kp DOT    &kp FSLH   &kp RBKT
+&none  &kp A                &kp R                &kp S                 &kp T        &kp D             &kp H      &kp N        &kp E             &kp I      &kp O      &kp ENTER
+&none  &kp Z                &kp X                &kp C                 &kp V        &kp B             &kp K      &kp M        &kp COMMA         &kp DOT    &kp FSLH   &kp RBKT
        &mt LEFT_GUI ESCAPE  &mt LEFT_ALT DELETE  &mt LEFT_CONTROL TAB  &lt 1 ENTER  &kp LEFT_SHIFT    &kp ENTER  &lt 2 SPACE  &kp LEFT_BRACKET  &kp MINUS  &kp EQUAL
             >;
         };
 
         nav {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &kp PRINTSCREEN  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp HOME         &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT         &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans           &trans     &trans     &trans     &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans           &trans     &trans     &trans     &trans
+&trans  &trans         &trans  &trans  &trans  &trans    &kp PRINTSCREEN  &trans     &trans     &trans     &trans  &trans
+&trans  &kp TAB        &trans  &trans  &trans  &trans    &kp HOME         &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
+&trans  &kp BACKSPACE  &trans  &trans  &trans  &trans    &kp LEFT         &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
+&trans  &trans         &trans  &trans  &trans  &trans    &trans           &trans     &trans     &trans     &trans  &trans
+        &trans         &trans  &trans  &trans  &trans    &trans           &trans     &trans     &trans     &trans
             >;
         };
 
         fn {
             bindings = <
 &trans  &kp F1         &kp F2  &kp F3  &kp F4  &kp F5            &kp F6    &kp F7     &kp F8     &kp F9        &kp F10       &kp F11
-&trans  &trans         &trans  &trans  &trans  &soft_off         &kp HOME  &kp PG_DN  &kp PG_UP  &kp END       &none         &kp F12
+&trans  &kp TAB        &trans  &trans  &trans  &soft_off         &kp HOME  &kp PG_DN  &kp PG_UP  &kp END       &none         &kp F12
 &trans  &kp BACKSPACE  &trans  &trans  &trans  &trans            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT     &trans        &trans
 &trans  &trans         &trans  &trans  &trans  &studio_unlock    &bt0      &trans     &trans     &trans        &trans        &trans
         &trans         &trans  &trans  &trans  &trans            &trans    &trans     &trans     &kp C_VOL_DN  &kp C_VOL_UP
