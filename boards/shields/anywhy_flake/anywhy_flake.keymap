@@ -106,6 +106,17 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        home_row: home_row {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <30>;
+            flavor = "balanced";
+            quick-tap-ms = <150>;
+        };
     };
 
     keymap {
@@ -113,11 +124,11 @@
 
         base {
             bindings = <
-&none  &kp N1          &kp N2          &kp N3              &kp N4            &kp N5    &kp N6  &kp N7             &kp N8            &kp N9          &kp N0           &kp BACKSPACE
-&none  &kp Q           &kp W           &kp F               &kp P             &kp G     &kp J   &kp L              &kp U             &kp Y           &kp SEMI         &kp BACKSLASH
-&none  &mt LEFT_GUI A  &mt LEFT_ALT R  &mt LEFT_CONTROL S  &mt LEFT_SHIFT T  &kp D     &kp H   &mt RIGHT_SHIFT N  &mt RCTRL E       &mt LEFT_ALT I  &mt RIGHT_GUI O  &kp SINGLE_QUOTE
-&none  &kp Z           &kp X           &kp C               &kp V             &kp B     &kp K   &kp M              &kp COMMA         &kp DOT         &kp FSLH         &kp RBKT
-       &kp ESC         &kp DELETE      &kp TAB             &kp ENTER         &mo 1     &mo 2   &kp SPACE          &kp LEFT_BRACKET  &kp MINUS       &kp EQUAL
+&none  &kp N1                &kp N2                &kp N3                    &kp N4                  &kp N5    &kp N6  &kp N7                   &kp N8             &kp N9                &kp N0                 &kp BACKSPACE
+&none  &kp Q                 &kp W                 &kp F                     &kp P                   &kp G     &kp J   &kp L                    &kp U              &kp Y                 &kp SEMI               &kp BACKSLASH
+&none  &home_row LEFT_GUI A  &home_row LEFT_ALT R  &home_row LEFT_CONTROL S  &home_row LEFT_SHIFT T  &kp D     &kp H   &home_row RIGHT_SHIFT N  &home_row RCTRL E  &home_row LEFT_ALT I  &home_row RIGHT_GUI O  &kp SINGLE_QUOTE
+&none  &kp Z                 &kp X                 &kp C                     &kp V                   &kp B     &kp K   &kp M                    &kp COMMA          &kp DOT               &kp FSLH               &kp RBKT
+       &kp ESC               &kp DELETE            &mt LEFT_CONTROL TAB      &kp ENTER               &mo 1     &mo 2   &kp SPACE                &kp LEFT_BRACKET   &kp MINUS             &kp EQUAL
             >;
         };
 
