@@ -141,21 +141,21 @@
 
         base {
             bindings = <
-&none  &kp N1                     &kp N2                     &kp N3                         &kp N4                       &kp N5    &kp N6     &kp N7                         &kp N8                   &kp N9                      &kp N0                       &kp BACKSPACE
-&none  &kp Q                      &kp W                      &kp F                          &kp P                        &kp G     &kp J      &kp L                          &kp U                    &kp Y                       &kp SEMI                     &kp BACKSLASH
-&none  &home_row_left LEFT_GUI A  &home_row_left LEFT_ALT R  &home_row_left LEFT_CONTROL S  &home_row_left LEFT_SHIFT T  &kp D     &kp H      &home_row_right RIGHT_SHIFT N  &home_row_right RCTRL E  &home_row_right LEFT_ALT I  &home_row_right RIGHT_GUI O  &kp SINGLE_QUOTE
-&none  &kp Z                      &kp X                      &kp C                          &kp V                        &kp B     &kp K      &kp M                          &kp COMMA                &kp DOT                     &kp FSLH                     &kp RBKT
-       &mt LEFT_GUI ESCAPE        &mt LEFT_ALT DELETE        &mt LEFT_CONTROL TAB           &kp ENTER                    &mo 1     &kp ENTER  &lt 2 SPACE                    &kp LEFT_BRACKET         &kp MINUS                   &kp EQUAL
+&none  &kp N1               &kp N2               &kp N3                &kp N4       &kp N5            &kp N6     &kp N7       &kp N8            &kp N9     &kp N0     &kp BACKSPACE
+&none  &kp Q                &kp W                &kp F                 &kp P        &kp G             &kp J      &kp L        &kp U             &kp Y      &kp SEMI   &kp BACKSLASH
+&none  &kp A                &kp R                &kp S                 &kp T        &kp D             &kp H      &kp N        &kp E             &kp I      &kp O      &kp SINGLE_QUOTE
+&none  &mt LEFT_SHIFT Z     &kp X                &kp C                 &kp V        &kp B             &kp K      &kp M        &kp COMMA         &kp DOT    &kp FSLH   &kp RBKT
+       &mt LEFT_GUI ESCAPE  &mt LEFT_ALT DELETE  &mt LEFT_CONTROL TAB  &lt 1 ENTER  &kp LEFT_SHIFT    &kp ENTER  &lt 2 SPACE  &kp LEFT_BRACKET  &kp MINUS  &kp EQUAL
             >;
         };
 
         nav {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans     &trans     &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp PRINTSCREEN  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp HOME         &kp PG_DN  &kp PG_UP  &kp END    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT         &kp DOWN   &kp UP     &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans           &trans     &trans     &trans     &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans           &trans     &trans     &trans     &trans
             >;
         };
 
