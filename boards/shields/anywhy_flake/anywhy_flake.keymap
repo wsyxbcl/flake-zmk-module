@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     combos {
@@ -196,6 +197,19 @@
             require-prior-idle-ms = <125>;
             hold-trigger-on-release;
         };
+
+        shift_hold_tap: shift_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
     };
 
     keymap {
@@ -203,11 +217,11 @@
 
         base {
             bindings = <
-&none  &kp NUMBER_1         &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5       &kp NUMBER_6  &kp N7       &kp NUMBER_8     &kp NUMBER_9  &kp NUMBER_0  &kp BACKSPACE
-&none  &kp Q                &kp W         &kp F         &kp P         &kp G              &kp J         &kp L        &kp U            &kp Y         &kp SEMI      &kp BACKSLASH
-&none  &kp A                &kp R         &kp S         &kp T         &kp D              &kp H         &kp N        &kp E            &kp I         &kp O         &kp SINGLE_QUOTE
-&none  &mt LEFT_SHIFT Z     &kp X         &kp C         &lt 4 V       &kp B              &kp K         &kp M        &kp COMMA        &kp DOT       &kp FSLH      &kp ENTER
-       &mt LEFT_GUI ESCAPE  &alt_mo 5     &ctrl_mo 6    &lt 1 TAB     &lt 3 BACKSPACE    &lt 3 DELETE  &lt 2 SPACE  &kp RIGHT_SHIFT  &kp MINUS     &kp EQUAL
+&none  &kp NUMBER_1                  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5       &kp NUMBER_6  &kp N7       &kp NUMBER_8     &kp NUMBER_9  &kp NUMBER_0  &kp BACKSPACE
+&none  &kp Q                         &kp W         &kp F         &kp P         &kp G              &kp J         &kp L        &kp U            &kp Y         &kp SEMI      &kp BACKSLASH
+&none  &kp A                         &kp R         &kp S         &kp T         &kp D              &kp H         &kp N        &kp E            &kp I         &kp O         &kp SINGLE_QUOTE
+&none  &shift_hold_tap LEFT_SHIFT Z  &kp X         &kp C         &lt 4 V       &kp B              &kp K         &kp M        &kp COMMA        &kp DOT       &kp FSLH      &kp ENTER
+       &mt LEFT_GUI ESCAPE           &alt_mo 5     &ctrl_mo 6    &lt 1 TAB     &lt 3 BACKSPACE    &lt 3 DELETE  &lt 2 SPACE  &kp RIGHT_SHIFT  &kp MINUS     &kp EQUAL
             >;
         };
 
@@ -223,11 +237,11 @@
 
         fn {
             bindings = <
-&trans  &kp F1         &kp F2  &kp F3  &kp F4  &kp F5            &kp F6    &kp F7     &kp F8     &kp F9        &kp F10       &kp F11
-&trans  &kp TAB        &trans  &trans  &trans  &soft_off         &kp HOME  &kp PG_DN  &kp PG_UP  &kp END       &none         &kp F12
-&trans  &kp BACKSPACE  &trans  &trans  &trans  &trans            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT     &trans        &trans
-&trans  &trans         &trans  &trans  &trans  &studio_unlock    &bt0      &trans     &trans     &trans        &trans        &trans
-        &trans         &trans  &trans  &trans  &trans            &trans    &trans     &trans     &kp C_VOL_DN  &kp C_VOL_UP
+&trans  &kp F1         &kp F2  &kp F3  &kp F4  &kp F5            &kp F6    &kp F7      &kp F8     &kp F9        &kp F10       &kp F11
+&trans  &kp TAB        &trans  &trans  &trans  &out OUT_TOG      &kp HOME  &kp PG_DN   &kp PG_UP  &kp END       &none         &kp F12
+&trans  &kp BACKSPACE  &trans  &trans  &trans  &trans            &kp LEFT  &kp DOWN    &kp UP     &kp RIGHT     &trans        &trans
+&trans  &trans         &trans  &trans  &trans  &studio_unlock    &bt0      &bt BT_CLR  &trans     &trans        &trans        &trans
+        &trans         &trans  &trans  &trans  &trans            &trans    &trans      &trans     &kp C_VOL_DN  &kp C_VOL_UP
             >;
         };
 
@@ -268,16 +282,6 @@
 &trans  &trans       &trans   &trans  &kp LA(T)  &trans    &trans  &trans  &trans  &trans  &trans  &kp ENTER
 &trans  &trans       &trans   &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
         &trans       &trans   &trans  &kp SPACE  &trans    &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        layer_7 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
